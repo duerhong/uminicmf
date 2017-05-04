@@ -1,0 +1,69 @@
+<extend name="Public@Public/base" />
+<block name="main_content">
+<link href="__ROOT__/Public/default/Static/css/mindex.css" rel="stylesheet">
+	<div class="row index_main">
+		<div class="col-md-8">
+    		<div class="logs_main">
+    			<div class="logs_tt"><h4>欢迎您，{$_SESSION['user']['username']}</h4></div>
+
+                <div class="logs_total">
+                    <div class="inrow">
+                    <foreach name="shortcut" item="row">
+                        <div class="initem">
+                            <div class="inbtn"><a class="btn btn-default" href="{$row['urls']}"><i class="iconfont"></i> {$row['title']}</a></div>
+                        </div>
+                    </foreach>
+
+                    </div>
+                </div>
+
+
+                <div class="logs_tt top30"><h4>范围分布</h4></div>
+                <div class="logs_total">
+                    <img src="__ROOT__/Public/default/Static/images/ditu.png" width="100%">
+                </div>
+
+
+
+
+                <div class="logs_tt top30"><h4>系统通知</h4></div>
+                <div class="logs_total">
+                    <p>今日访问量：1.0</p>
+                </div>
+
+                <div class="logs_tt top30"><h4>开发团队</h4></div>
+                <div class="logs_total">
+                    <p>后台开发：杜二红 qq:1186969412</p>
+                    <p>前端设计：杜二红 qq:1186969412</p>
+
+                </div>
+
+
+
+    		</div>  <!-- end logs_main -->
+    	</div>
+
+    	<div class="col-md-4">
+    		<div class="logs_lists">
+    			<div class="logs_item">
+    				<h4>最近操作</h4>
+    			</div>
+
+                <foreach name="log_lists" item="row">
+    			<div class="logs_item">
+    				<div class="logs_action">
+    					对【{$row['model_name']|get_model_name}】进行了【{$row['action']}】操作
+    				</div>
+    				<div class="logs_times">
+    					IP:{$row['ip']}&nbsp;时间:{$row['times']}
+    				</div>
+    			</div>
+                </foreach>
+
+
+
+    		</div>
+    	</div>
+	</div>
+
+</block>

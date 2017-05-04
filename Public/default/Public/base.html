@@ -1,0 +1,108 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <block name="seo"></block>
+
+  <title>UminiCmf内容管理框架: <block name="title"></block> </title>
+  <link href="__ROOT__/Public/boot/css/bootstrap.min.css" rel="stylesheet">
+  <link href="__ROOT__/Public/{:C(DEFAULT_THEME)}/Static/css/base.css" rel="stylesheet" type="text/css" media="screen">
+
+  <link href="__ROOT__/Public/{:C(DEFAULT_THEME)}/Static/css/myboot.css" rel="stylesheet" type="text/css" media="screen">
+  <link rel="stylesheet" type="text/css" href="__ROOT__/Public/plug/datetimepicker/jquery.datetimepicker.css"/>
+  <link href="__ROOT__/Public/icon/iconfont.css" rel="stylesheet">
+
+
+  <script src="__ROOT__/Public/boot/js/jquery.js"></script>
+
+  <script src="__ROOT__/Public/plug/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+  <script>
+  $.datetimepicker.setLocale('zh');
+  </script>
+  <?php
+  if(strpos($HTTP_SERVER_VARS[HTTP_USER_AGENT], "MSIE 8.0")) {
+  echo ' <link href="__ROOT__/Public/{:C(DEFAULT_THEME)}/Static/css/ie.css" rel="stylesheet" type="text/css" media="screen">';
+  }
+  ?>
+  <block name="css"></block>
+</head>
+
+<body>
+
+
+
+<!-- 头部功能菜单 -->
+<div class="top">
+<include file="Public@Public/header" />
+</div>
+
+
+<div class="row top50">
+  <div class="col-md-2 col-sm-3 col-xs-12">
+    <div class="sleft">
+    	<div class="menu">
+        <block name="sec_menu">
+          <!-- 侧栏列表 -->
+          <include file="Public@Public/sec_menu" />
+        </block>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10 col-sm-9 col-xs-12 sright">
+
+  	<div class="main">
+      <!-- 右侧标题区 [必须]-->
+      <div class="main_map">
+        <block name="main_map">
+          <ol class="breadcrumb">
+            {$path_nav}
+            <if condition="$back_url neq false">
+            <li style="float:right"><a href="{$back_url}" class="btn btn-success btn-xs">返回上页</a></li>
+            </if>
+
+          </ol>
+        </block>
+      </div>
+
+      <div class="main_body">
+        <!-- 工具条【可选】 -->
+        <block name="tools"></block>
+
+        <!-- 主要内容区域【可选】 -->
+        <block name="main_content">
+          这里是主要区域
+        </block>
+      </div><!-- main_body -->
+    </div>
+  </div>
+</div>
+
+
+
+<block name="footer">
+  <block name="footer"><include file="Public@Public/footer" /></block>
+</block>
+
+
+<block name="script"></block>
+<if condition="$_SESSION['act_info'] neq false">
+<div class="alt_msg">
+  <div class="show_msg">
+    <?php
+          echo $_SESSION['act_info'];
+          unset($_SESSION['act_info']);
+        ?>
+  </div>
+</div>
+<script type="text/javascript">
+var intimer=setInterval(function(){    //开启定时器
+  {
+    $(".alt_msg").fadeOut(500);
+      clearInterval(intimer);    //清除定时器
+  }
+},2000);
+</script>
+</if>
+</body>
+</html>

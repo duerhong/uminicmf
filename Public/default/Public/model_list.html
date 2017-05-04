@@ -1,0 +1,31 @@
+<div class="row model_list">
+  <!-- 如何从公共function中读取 -->
+  <div class="col-md-2 row_line">
+    <a class="model_name site_title">
+    <span class="letter" data-letter="Umini">UminiCMF</span>
+    </a>
+  </div>
+  <if condition="$PUB_TOPMENU_LIST neq 0">
+    <div class="col-md-10">
+      <div class="row">
+      <foreach name="PUB_TOPMENU_LIST" item="row">
+        <div class="col-md-1 row_line oh">
+          <if condition="$row['url'] neq '0'">
+            <a class="model_name" href="{$row['url']}">
+              <span class="{$row['img']}" aria-hidden="true"></span>
+              &nbsp;&nbsp;{$row['title']}ssss
+            </a>
+          <else />
+            <a class="model_name" href="/index.php?s={$row['node_name']}&menu_id={$row['id']}">
+              <span class="{$row['img']}" aria-hidden="true"></span>
+              &nbsp;&nbsp;{$row['title']}ddd
+            </a>
+          </if>
+        </div>
+      </foreach>
+      </div>
+    </div>
+    <else  />
+    <div class="col-md-10 row_line"><a class="model_name">暂无使用模块可</a></div>
+  </if>
+</div>

@@ -1,0 +1,86 @@
+<extend name="Public@Public/base" />
+
+<block name="main_content">
+
+<div class="section_head">
+  <div class="section_title">[ {$thisNode['title']} ]</div>
+  <div class="section_tools">
+    <a class="btn btn-primary btn-sm" href="/index.php?s=Site/Adv/adv_type_list">返回</a>
+  </div>
+</div>
+
+<div class="filter">
+    <div class="row frow">
+      <form action="" method="POST" name="form">
+      {$saerchForm}
+      <div class="col-md-3 col-xs-12 col-sm-3">
+        <input  type="submit" name="submit" class="btn btn-default input-sm" value="搜索">
+      </div>
+      </form>
+    </div>
+</div>
+
+
+<table class="table table-bordered datalist table-hover">
+  <thead>
+    <tr>
+      <if condition="$list_img_show neq false">
+        <th>图片</th>
+      </if>
+      <foreach name="title_lists" item="row">
+        <th>
+          {$row}
+        </th>
+      </foreach>
+      <th>
+        操作
+        <if condition="$add_adv_btn neq false">
+        <a href="/index.php?s={$add_adv_btn['node_name']}&adv_id={$_GET['id']}" class="btn btn-primary btn-xs">
+          {$add_adv_btn['title']}
+        </a>
+        </if>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <foreach name="list_data" item="row" key='key'>
+    <tr>
+      <if condition="$list_img_show neq false">
+        <th><img src="{$row[$list_img_show]}" width=42 height=42 style="border:1px solid #ccc;padding:2px;"></th>
+      </if>
+      <foreach name="title_lists" item="row1" key='key1'>
+        <td>
+         {$row[$key1]}
+        </td>
+      </foreach>
+      <td>
+        <if condition="$update_adv_btn neq false">
+          <a href="/index.php?s={$update_adv_btn['node_name']}&adv_id={$_GET['id']}&id={$row['id']}" class="btn btn-primry btn-xs">
+            {$update_adv_btn['title']}
+          </a>
+        </if>
+        <if condition="$delete_adv_btn neq false">
+          <a href="/index.php?s={$delete_adv_btn['node_name']}&adv_id={$_GET['id']}&id={$row['id']}" class="btn btn-primry btn-xs">
+            {$delete_adv_btn['title']}
+          </a>
+        </if>
+      </td>
+    </tr>
+    </foreach> 
+  </tbody>
+  <thead>
+    <tr>
+      <if condition="$list_img_show neq false">
+        <th>图片</th>
+      </if>
+      <foreach name="title_lists" item="row">
+        <th>
+          {$row}
+        </th>
+      </foreach>
+      <th>操作</th>
+    </tr>
+  </thead>
+  </table>
+  <div class="page">{$page}</div>
+</block>

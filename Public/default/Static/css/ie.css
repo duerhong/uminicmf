@@ -1,0 +1,9 @@
+.model_list .col-md-1 {
+  width: 8.33333%;
+  float: left;
+  background: #4a8bc2;
+}
+
+.model_list .col-md-1:hover{
+  background: #337ab7;
+}

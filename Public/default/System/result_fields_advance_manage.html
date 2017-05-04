@@ -1,0 +1,66 @@
+<extend name="Public@Public/base" />
+<block name="main_content">
+<div class="adc_help">
+<h5>高级配置说明</h5>
+<pre>
+外键配置
+table:user
+key_field:id
+show_field:username
+</pre>
+
+<pre>
+下拉列表
+key:value
+</pre>
+<pre>
+上传插件
+maxSize:3145728
+exts:jpg,png,jpeg
+path:myupload
+</pre>
+
+<pre>
+表单验证插件-方式
+required|true|不能为空#
+min|20|长度必须为20
+
+jqueryvalidation 常用插件 *代表php暂时不支持
+required:true	必须输入的字段。
+remote:"check.php"	使用 ajax 方法调用 check.php 验证输入值。
+email:true	必须输入正确格式的电子邮件。
+url:true	必须输入正确格式的网址。
+date:true	必须输入正确格式的日期。日期校验 ie6 出错，慎用。
+dateISO:true	必须输入正确格式的日期（ISO），例如：2009-06-23，1998/01/22。只验证格式，不验证有效性。 ***
+number:true	必须输入合法的数字（负数，小数）。
+digits:true	必须输入整数。
+creditcard:	必须输入合法的信用卡号。 ***
+equalTo:"#field"	输入值必须和 #field 相同。 ***
+accept:	输入拥有合法后缀名的字符串（上传文件的后缀）。
+maxlength:5	输入长度最多是 5 的字符串（汉字算一个字符）。
+minlength:10	输入长度最小是 10 的字符串（汉字算一个字符）。
+rangelength:[5,10]	输入长度必须介于 5 和 10 之间的字符串（汉字算一个字符）。
+range:[5,10]	输入值必须介于 5 和 10 之间。
+max:5	输入值不能大于 5。
+min:10	输入值不能小于 10。
+</pre>
+
+</div>
+<form class="form-horizontal" action="" method="POST">
+
+	<!-- 高级配置 -->
+	{$form}
+	<!-- 高级配置 -->
+
+	<div style="height:20px;"></div>
+
+<div class="form-group from_sub">
+      &nbsp;&nbsp;<input type="submit" name="submit" class="btn btn-default" value="保存">
+      &nbsp;&nbsp;<a class="btn btn-default" href="javascript:window.history.back()">返 回</a>
+</div>
+
+</form>
+
+
+
+</block>

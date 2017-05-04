@@ -1,0 +1,465 @@
+<extend name="Public@Public/base" />
+<block name="main_content">
+
+<div class="field_head">
+  <div class="field_title">[ 模型字段管理 ] </div>
+  <div class="field_tools">
+      <a class="btn btn-primary btn-sm" href="{:U($pro_cycle_add['node_name'],array('id'=>$_GET['id']))}"  data-toggle="modal" data-target="#exampleModal1">分组管理
+      </a>
+  </div>
+</div>
+
+
+<form class="form-horizontal" action="" method="POST">
+<div class="field_body">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+
+
+    <li role="presentation"  class="active"><a href="#tab_valid" aria-controls="profile" role="tab" data-toggle="tab">可见有效字段</a></li>
+
+    <li role="presentation"><a href="#tab_hidden" aria-controls="settings" role="tab" data-toggle="tab">隐藏字段</a></li>
+    <li role="presentation"><a href="#tab_disable" aria-controls="disable" role="tab" data-toggle="tab">禁用字段</a></li>
+
+    <li role="presentation"><a href="#news_fields" aria-controls="home" role="tab" data-toggle="tab">新字段</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+
+
+	<div role="tabpanel" class="tab-pane active" id="tab_valid">
+		<br />
+		<table class="table table-bordered table-hover">
+			<tr>
+        <th width=50>删除</th>
+				<th width=90>排序</th>
+				<th width=150>字段</th>
+				<th>说明</th>
+				<th width=130>插件</th>
+				<th width=100>状态</th>
+				<th width=130>分组</th>
+				<th width=100>高级配置</th>
+			</tr>
+			<foreach name="model_field_list" item="row">
+			<tr>
+        <td width=50><a onclick="sure_delete();" href="{:U('System/Model/fields_delete',array('field'=>$row['field'],'id'=>$_GET['id']))}">删除</a></td>
+				<td>
+					<input type="text" name="orderid[]" class="form-control" style="width:50px;" value="{$row['field']|get_value=orderid,$this_model['model_name']}">
+				</td>
+				<td>
+					<input type="text" name="field[]" class="form-control" value="{$row['field']}" readonly>
+				</td>
+				<td>
+				<?php $this_title=get_value($row['field'],'title',$this_model['model_name']);?>
+				<if condition="$this_title neq false">
+					<input type="text" name="title[]" class="form-control" value="{$row['field']|get_value=title,$this_model['model_name']}">
+				<else />
+					<input type="text" name="title[]" class="form-control" value="{$row['comment']}">
+				</if>
+				</td>
+
+				<td>
+					<select class="form-control" name="plug[]">
+						<foreach name="form_plugs" item="group" key="group_key">
+
+              <optgroup label="{$group['group_title']}">
+                <foreach name="group['group_list']" item="plug_row" key="plug_key">
+                  <if condition="get_value($row['field'],'plug',$this_model['model_name']) eq $plug_key">
+    								<option value="{$plug_key}" selected>{$plug_row}</option>
+    							<else />
+    								<option value="{$plug_key}">{$plug_row}</option>
+    							</if>
+                </foreach>
+              </optgroup>
+
+						</foreach>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="status[]">
+						<if condition="get_value($row['field'],'status',$this_model['model_name']) eq 1">
+							<option value="1" selected="selected">启用</option>
+							<option value="0">禁用</option>
+						<else />
+							<option value="1">启用</option>
+							<option value="0" selected="selected">禁用</option>
+						</if>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="field_group_id[]">
+						<foreach name="field_group_list" item="plug_row">
+							<if condition="get_value($row['field'],'field_group_id',$this_model['model_name']) eq $plug_row['id']">
+								<option value="{$plug_row['id']}" selected>{$plug_row['title']}</option>
+							<else />
+								<option value="{$plug_row['id']}">{$plug_row['title']}</option>
+							</if>
+
+						</foreach>
+					</select>
+				</td>
+
+
+				<td>
+					<a href="{:U('System/Model/fields_advance_manage',array('field'=>$row['field'],'id'=>$_GET['id']))}">高级配置</a>
+				</td>
+			</tr>
+			</foreach>
+		</table>
+
+    <div class="add_field">
+      <div class="add_field_title">[ 新增表单项 ]</div>
+      <table class="table table-bordered table-hover">
+  			<tr>
+
+  				<th width=90>排序</th>
+  				<th width=150>字段</th>
+  				<th>说明</th>
+  				<th width=130>插件</th>
+  				<th width=100>状态</th>
+  				<th width=130>分组</th>
+  				<th width=100>高级配置</th>
+  			</tr>
+        <tr>
+
+          <td>
+  					<input type="text" name="orderid[]" class="form-control" style="width:50px;" value="">
+  				</td>
+  				<td>
+  					<input type="text" name="field[]" class="form-control" value="">
+  				</td>
+  				<td>
+  				<?php $this_title=get_value($row['field'],'title',$this_model['model_name']);?>
+  				  <input type="text" name="title[]" class="form-control" value="">
+  				</td>
+
+  				<td>
+  					<select class="form-control" name="plug[]">
+              <foreach name="form_plugs" item="group" key="group_key">
+
+                <optgroup label="{$group['group_title']}">
+                  <foreach name="group['group_list']" item="plug_row" key="plug_key">
+      							<option value="{$plug_key}">{$plug_row}</option>
+                  </foreach>
+                </optgroup>
+
+  						</foreach>
+  					</select>
+  				</td>
+
+  				<td>
+  					<select class="form-control" name="status[]">
+  							<option value="1" selected="selected">启用</option>
+  							<option value="0">禁用</option>
+  					</select>
+  				</td>
+
+  				<td>
+  					<select class="form-control" name="field_group_id[]">
+  						<foreach name="field_group_list" item="plug_row">
+  							<option value="{$plug_row['id']}">{$plug_row['title']}</option>
+  						</foreach>
+  					</select>
+  				</td>
+
+
+  				<td>
+  					<a href="{:U('System/Model/fields_advance_manage',array('field'=>$row['field'],'id'=>$_GET['id']))}">高级配置</a>
+  				</td>
+  			</tr>
+        <tr>
+  				<th width=90>排序</th>
+  				<th width=150>字段</th>
+  				<th>说明</th>
+  				<th width=130>插件</th>
+  				<th width=100>状态</th>
+  				<th width=130>分组</th>
+  				<th width=100>高级配置</th>
+  			</tr>
+      </table>
+    </div>
+	</div> <!-- end tab_valid -->
+
+    <div role="tabpanel" class="tab-pane" id="tab_hidden">
+    	<br />
+    	<table class="table table-bordered table-hover">
+			<tr>
+				<th width=90>排序</th>
+				<th width=150>字段</th>
+				<th>说明</th>
+				<th width=130>插件</th>
+				<th width=100>状态</th>
+				<th width=130>分组</th>
+				<th width=100>高级配置</th>
+			</tr>
+			<foreach name="hidden_field_list" item="row">
+			<tr>
+				<td>
+					<input type="text" name="orderid[]" class="form-control" style="width:50px;" value="{$row['field']|get_value=orderid,$this_model['model_name']}">
+				</td>
+				<td>
+					<input type="text" name="field[]" class="form-control" value="{$row['field']}" readonly>
+				</td>
+				<td>
+				<?php $this_title=get_value($row['field'],'title',$this_model['model_name']);?>
+				<if condition="$this_title neq false">
+					<input type="text" name="title[]" class="form-control" value="{$row['field']|get_value=title,$this_model['model_name']}">
+				<else />
+					<input type="text" name="title[]" class="form-control" value="{$row['comment']}">
+				</if>
+				</td>
+			<!-- 	<td>
+					<input type="text" name="verify[]" class="form-control" value="{$row['field']|get_value=verify,$this_model['model_name']}">
+				</td> -->
+				<td>
+					<select class="form-control" name="plug[]">
+            <foreach name="form_plugs" item="group" key="group_key">
+
+              <optgroup label="{$group['group_title']}">
+                <foreach name="group['group_list']" item="plug_row" key="plug_key">
+                  <if condition="get_value($row['field'],'plug',$this_model['model_name']) eq $plug_key">
+    								<option value="{$plug_key}" selected>{$plug_row}</option>
+    							<else />
+    								<option value="{$plug_key}">{$plug_row}</option>
+    							</if>
+                </foreach>
+              </optgroup>
+
+						</foreach>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="status[]">
+						<if condition="get_value($row['field'],'status',$this_model['model_name']) eq 1">
+							<option value="1" selected="selected">启用</option>
+							<option value="0">禁用</option>
+						<else />
+							<option value="1">启用</option>
+							<option value="0" selected="selected">禁用</option>
+						</if>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="field_group_id[]">
+						<foreach name="field_group_list" item="plug_row">
+							<if condition="get_value($row['field'],'field_group_id',$this_model['model_name']) eq $plug_row['id']">
+								<option value="{$plug_row['id']}" selected>{$plug_row['title']}</option>
+							<else />
+								<option value="{$plug_row['id']}">{$plug_row['title']}</option>
+							</if>
+
+						</foreach>
+					</select>
+				</td>
+
+
+				<td>
+					<a href="{:U('System/Model/fields_advance_manage',array('field'=>$row['field'],'id'=>$_GET['id']))}">高级配置</a>
+				</td>
+			</tr>
+			</foreach>
+		</table>
+    </div>
+    <!-- end tab_hidden -->
+    <div role="tabpanel" class="tab-pane" id="tab_disable">
+    	<br />
+    	<table class="table table-bordered table-hover">
+			<tr>
+				<th width=90>排序</th>
+				<th width=150>字段</th>
+				<th>说明</th>
+				<th width=130>插件</th>
+				<th width=100>状态</th>
+				<th width=130>分组</th>
+				<th width=100>高级配置</th>
+			</tr>
+			<foreach name="disable_field_list" item="row">
+			<tr>
+				<td>
+					<input type="text" name="orderid[]" class="form-control" style="width:50px;" value="{$row['field']|get_value=orderid,$this_model['model_name']}">
+				</td>
+				<td>
+					<input type="text" name="field[]" class="form-control" value="{$row['field']}" readonly>
+				</td>
+				<td>
+				<?php $this_title=get_value($row['field'],'title',$this_model['model_name']);?>
+				<if condition="$this_title neq false">
+					<input type="text" name="title[]" class="form-control" value="{$row['field']|get_value=title,$this_model['model_name']}">
+				<else />
+					<input type="text" name="title[]" class="form-control" value="{$row['comment']}">
+				</if>
+				</td>
+				<!-- <td>
+					<input type="text" name="verify[]" class="form-control" value="{$row['field']|get_value=verify,$this_model['model_name']}">
+				</td> -->
+				<td>
+					<select class="form-control" name="plug[]">
+            <foreach name="form_plugs" item="group" key="group_key">
+
+              <optgroup label="{$group['group_title']}">
+                <foreach name="group['group_list']" item="plug_row" key="plug_key">
+                  <if condition="get_value($row['field'],'plug',$this_model['model_name']) eq $plug_key">
+    								<option value="{$plug_key}" selected>{$plug_row}</option>
+    							<else />
+    								<option value="{$plug_key}">{$plug_row}</option>
+    							</if>
+                </foreach>
+              </optgroup>
+
+						</foreach>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="status[]">
+						<if condition="get_value($row['field'],'status',$this_model['model_name']) eq 1">
+							<option value="1" selected="selected">启用</option>
+							<option value="0">禁用</option>
+						<else />
+							<option value="1">启用</option>
+							<option value="0" selected="selected">禁用</option>
+						</if>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="field_group_id[]">
+						<foreach name="field_group_list" item="plug_row">
+							<if condition="get_value($row['field'],'field_group_id',$this_model['model_name']) eq $plug_row['id']">
+								<option value="{$plug_row['id']}" selected>{$plug_row['title']}</option>
+							<else />
+								<option value="{$plug_row['id']}">{$plug_row['title']}</option>
+							</if>
+
+						</foreach>
+					</select>
+				</td>
+
+
+				<td>
+					<a href="{:U('System/Model/fields_advance_manage',array('field'=>$row['field'],'id'=>$_GET['id']))}">高级配置</a>
+				</td>
+			</tr>
+			</foreach>
+		</table>
+    </div> <!-- end tab_disable -->
+
+    <div role="tabpanel" class="tab-pane" id="news_fields">
+
+
+    	<if condition="$new_fields_list neq false">
+    	<!-- 基本配置 -->
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th width=90>排序</th>
+				<th width=150>字段</th>
+				<th>说明</th>
+				<th width=130>插件</th>
+				<th width=100>状态</th>
+				<th width=130>分组</th>
+				<th width=100>高级配置</th>
+			</tr>
+			<foreach name="new_fields_list" item="row">
+			<tr>
+				<td>
+					<input type="text" name="orderid[]" class="form-control" style="width:50px;" value="{$row['field']|get_value=orderid,$this_model['model_name']}">
+				</td>
+				<td>
+					<input type="text" name="field[]" class="form-control" value="{$row['field']}" readonly>
+				</td>
+				<td>
+				<?php $this_title=get_value($row['field'],'title',$this_model['model_name']);?>
+				<if condition="$this_title neq false">
+					<input type="text" name="title[]" class="form-control" value="{$row['field']|get_value=title,$this_model['model_name']}">
+				<else />
+					<input type="text" name="title[]" class="form-control" value="{$row['comment']}">
+				</if>
+				</td>
+				<!-- <td>
+					<input type="text" name="verify[]" class="form-control" value="{$row['field']|get_value=verify,$this_model['model_name']}">
+				</td> -->
+				<td>
+					<select class="form-control" name="plug[]">
+						<foreach name="form_plugs" item="plug_row" key="plug_key">
+							<if condition="get_value($row['field'],'plug',$this_model['model_name']) eq $plug_key">
+								<option value="{$plug_key}" selected>{$plug_row}</option>
+							<else />
+								<option value="{$plug_key}">{$plug_row}</option>
+							</if>
+
+						</foreach>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="status[]">
+						<if condition="get_value($row['field'],'status',$this_model['model_name']) eq 1">
+							<option value="1" selected="selected">启用</option>
+							<option value="0">禁用</option>
+						<else />
+							<option value="1">启用</option>
+							<option value="0" selected="selected">禁用</option>
+						</if>
+					</select>
+				</td>
+
+				<td>
+					<select class="form-control" name="field_group_id[]">
+						<foreach name="field_group_list" item="plug_row">
+							<if condition="get_value($row['field'],'field_group_id',$this_model['model_name']) eq $plug_row['id']">
+								<option value="{$plug_row['id']}" selected>{$plug_row['title']}</option>
+							<else />
+								<option value="{$plug_row['id']}">{$plug_row['title']}</option>
+							</if>
+
+						</foreach>
+					</select>
+				</td>
+
+
+				<td>
+					<a href="/index.php?s=System/Model/fields_advance_manage&field={$row['field']}&id={$_GET['id']}">高级配置</a>
+				</td>
+			</tr>
+			</foreach>
+		</table>
+		<!-- 基本配置 -->
+		<else />
+			<br />
+			<div class="alert alert-danger alert-dismissible fade in" role="alert">
+		      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+		      <h1>最近没有新添加字段！</h1>
+		      <p>
+		        <a href="/phpmyadmin" target="blank" class="btn btn-danger">去添加字段</a>
+		      </p>
+		    </div>
+		</if>
+    </div> <!-- end new_field -->
+
+  </div> <!-- end tab-content -->
+
+</div>
+
+
+
+
+
+
+
+<div style="height:20px;"></div>
+<div class="form-group from_sub">
+      &nbsp;&nbsp;<input type="submit" class="btn btn-default" value="更新" name="submit" >
+      &nbsp;&nbsp;<a class="btn btn-default" href="javascript:window.history.back()">返 回</a>
+</div>
+</form>
+
+
+
+
+</block>

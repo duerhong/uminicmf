@@ -1,0 +1,32 @@
+<extend name="Public@Public/base" />
+
+<block name="main_content">
+<form class="form-horizontal" action="" method="POST"> 
+ 
+<div class='fms'>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">基本配置</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    <!-- ===============上====================== -->
+      {$form}
+    <!-- ===============下====================== -->
+    </div>
+  </div>
+
+</div><!--fms-->
+
+  
+  <div class="form-group form_sub">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" class="btn btn-default" name="submit" value="提交" />
+    </div>
+  </div>
+<!-- 基本配置 -->
+</form>
+
+</block>

@@ -1,0 +1,94 @@
+.pro_select{
+	padding: 0px;
+	margin:0px;
+	list-style: none;
+	margin: 10px 0px;
+}
+.pro_select{
+	padding: 0px;
+	margin:0px;
+	margin: 10px 0px;
+}
+
+.pro_select  label{
+	border: 1px solid #ccc;
+	padding: 4px 22px;
+	border-radius: 4px;
+	display: inline-block;
+	/*background: #f1f1f1;*/
+	margin-right: 20px;
+}
+
+.pro_select  .pro_on{
+	background: #ddd;
+}
+
+
+.pro_head{
+	overflow: hidden;
+	font-size: 22px;
+	color: #888;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+
+.pro_head span{
+	color: #999;
+	font-size: 16px;
+}
+
+.uc_pro{
+	border:1px solid #ddd;
+	padding: 15px;
+	margin-top: 10px;
+}
+
+.pro_body{
+	overflow: hidden;
+	padding-top: 10px;
+	padding-left:15px;
+}
+
+input[type=radio]:checked + label {  
+    background: #ddd;  
+} 
+
+.i_pro_type:checked
+{ 
+	background-color: #ddd;
+}
+
+.neb{
+	overflow: hidden;
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+	padding-left:15px;
+}
+
+.fminline{
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+
+
+.uc_in_pro{
+	margin-top: 10px;
+}
+
+.i_pro{
+
+	width: 250px;
+}
+
+.giname{
+	color: #f40;
+}
+
+#youhuijia{
+	display: none;
+}
+#dazhe{
+	display: none;
+}

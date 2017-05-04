@@ -1,0 +1,158 @@
+<extend name="Public@Public/base" />
+<block name="main_content">
+<form class="form-horizontal" action="" method="POST">
+<div class='fms'>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">基本配置</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    <!-- ===============上====================== -->
+      
+	<div class="form-group">
+		<label class="col-sm-2 control-label">组名称</label>
+		<div class="col-sm-9">
+			<input type="hidden" name="id" value="{$data['id']}">
+			<input type="text" class="form-control" id="id" name="title" placeholder="组名称" value="{$data['title']}">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">状态</label>
+		<div class="col-sm-9">
+			<select class="form-control" name="status">
+				<if condition="$data['status'] eq 1">
+				<option value="1" selected="selected">启用</option>
+				<option value="0">禁用</option>		
+				<else />
+				<option value="1">启用</option>
+				<option value="0" selected="selected">禁用</option>		
+				</if>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">节点</label>
+		<div class="col-sm-9">
+<!-- ==========================授权======================================== -->
+			<!-- 节点 -->
+<table class="table table-bordered datalist table-hover">
+  <thead>
+    <tr>
+		<th>
+			节点
+		</th>
+
+		<th width=50 style="text-align:center;">
+			授权
+		</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<foreach name="nav_menu" item="row" key='key'>
+        <tr style="background:#d9edf7">
+			<td>
+				<label class="control-label">
+			 		{$row['title']}【{$row['node_name']}】
+			 	</label>
+			</td>
+
+			
+
+			<td>
+				<label class="control-label">
+					<input type="checkbox" class="node_one" {$row['id']|is_checked=$data['rules']} name="rules[]" value="{$row['id']}">
+				</label>
+			</td>
+        </tr>
+        <?php $controller_menu=get_node_auth(array('pid='.$row['id']));?>
+        <if condition="$controller_menu neq 0">
+        	<foreach name="controller_menu" item="row1" key='key1'>
+        		<tr>
+					<td>
+						<label class="control-label">
+			 			<span style="font-family: fantasy;">|---&nbsp;</span>{$row1['title']}【{$row1['node_name']}】
+			 			</label>
+					</td>
+					
+					<td>
+					<label class="control-label"><input type="checkbox"  class="node_two" name="rules[]" {$row1['id']|is_checked=$data['rules']} value="{$row1['id']}"></label>
+					</td>
+		        </tr>
+
+		        <?php $action_menu=get_node_auth(array('pid='.$row1['id']));?>
+		        <if condition="$action_menu neq 0">
+		        	<foreach name="action_menu" item="row2" key='key1'>
+		        		<tr>
+							<td>
+								<label class="control-label">
+							 	<span style="font-family: fantasy;">|-----|---&nbsp;</span>{$row2['title']}【{$row2['node_name']}】
+							 	</label>
+							</td>
+							<td>
+								<label class="control-label">
+									<input type="checkbox"  name="rules[]" {$row2['id']|is_checked=$data['rules']} class="node_three" value="{$row2['id']}">
+								</label>
+								
+							</td>
+				        </tr>
+
+
+				        <?php $actions=get_node_auth(array('pid='.$row2['id']));?>
+				        <if condition="$action_menu neq 0">
+				        	<volist name="actions" id="row3" key='key3'>
+				        		<tr>
+									<td style="color:#ABABAB">
+										<label class="control-label">
+									 	<span style="font-family: fantasy;">|-----|-----|---&nbsp;</span>{$row3['title']}【{$row3['node_name']}】
+									 	</label>
+									</td>
+									<td>
+										<label class="control-label">
+											<input type="checkbox"  name="rules[]" {$row3['id']|is_checked=$data['rules']} class="node_four" value="{$row3['id']}">
+										</label>
+									</td>
+						        </tr>
+				        	</volist>
+				        </if>
+
+		        	</foreach>
+		        </if>
+        	</foreach>
+        </if>
+	</foreach>
+  </tbody>
+</table>
+   <!-- ============end节点================ -->
+<!-- ==========================授权===================================== -->
+			
+
+		</div>
+	</div>
+
+
+    <!-- ===============下====================== -->
+    </div>
+  </div>
+
+</div><!--fms-->
+
+  
+  <div class="form-group form_sub">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" name="submit" value="提 交" class="btn btn-default">
+    </div>
+  </div>
+<!-- 基本配置 -->
+</form>
+
+
+
+
+<!-- 这里可以添加帮助控件 -->
+
+</block>

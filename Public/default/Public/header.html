@@ -1,0 +1,67 @@
+<block name="header">
+<!-- 必要时，可以替换header -->
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">UminiCMF内容管理框架</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <if condition="$PUB_TOPMENU_LIST neq 0">
+            <foreach name="PUB_TOPMENU_LIST" item="row">
+                <if condition="$row['url'] neq '0'">
+                  <li>
+                    <a class="model_name" href="{$row['url']}">
+                      <span class="{$row['img']}" aria-hidden="true"></span>
+                      &nbsp;&nbsp;{$row['title']}
+                    </a>
+                  </li>
+                <else />
+                <li>
+                  <a class="model_name" href="{:U($row['node_name'].'/Index/index')}">
+                    <span class="{$row['img']}" aria-hidden="true"></span>
+                    &nbsp;&nbsp;{$row['title']}
+                  </a>
+                </li>
+                </if>
+            </foreach>
+        </if>
+
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right header-tools">
+
+
+
+        <li><img src="__ROOT__/Public/default/Static/images/avatar2.jpg" class="portrait"></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{$_SESSION['user']['username']} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">修改个人资料</a></li>
+            <li><a href="#">修改密码</a></li>
+          </ul>
+        </li>
+
+        <li><a href="{:U('Auth/Index/logout')}">注销系统</a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+</block>

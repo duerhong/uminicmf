@@ -1,0 +1,109 @@
+.index_main{
+	margin: 10px 0px;
+	margin-left: -5px;
+	overflow: hidden;
+}
+
+.logs_lists{
+	border-radius: 0px;
+    border: 1px solid #E2DFDF;
+    box-shadow: 0px 1px 5px #E2DFDF;
+    margin-bottom: 5px;
+    /*margin-left: 15px;*/
+    margin-right: 5px;
+    border-radius: 2px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    min-height: 531px;
+}
+
+.logs_item{
+	font-size: 13px;
+	overflow: hidden;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ddd;
+}
+
+.logs_times{
+	font-size: 12px;
+	margin-top: 5px;
+	color: #9a9a9a;
+	text-align: right;
+	font-style: italic;
+}
+
+.logs_main{
+    border-radius: 0px;
+    border: 1px solid #E2DFDF;
+    box-shadow: 0px 1px 5px #E2DFDF;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    min-height: 531px
+}
+
+.logs_tt{
+	font-size: 13px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logs_total{
+	overflow: hidden;
+}
+
+.logs_total .lt .lt_item{
+	padding-top: 8px;
+	margin-top: 10px;
+	text-align: center;
+	float: left;
+	width: 20%;
+	border-right: 1px solid #ccc;
+}
+
+.logs_total .lt .nbder{
+	border-right: 0px;
+}
+
+.logs_total .lt .lt_num{
+	color: #f40000;
+}
+
+.logs_total .lt .lt_num span{
+	color: #fff;
+	background: #f40;
+	padding: 1px 8px;
+	border-radius: 8px;
+	font-size: 12px;
+}
+
+.inbtn{
+	text-align: center;
+}
+
+.inbtn a{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.inrow{
+	overflow:hidden;
+}
+
+.inrow .inbtn{
+	float: left;
+	margin-right: 20px;
+}
+
+
+
+
+

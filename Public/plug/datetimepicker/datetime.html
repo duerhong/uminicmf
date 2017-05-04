@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css"/>
+</head>
+<body>
+	
+
+<input type="text" id="datetimepicker8"/>
+<input type="text" id="datetimepicker9"/>
+
+</body>
+<script src="./jquery.js"></script>
+<script src="build/jquery.datetimepicker.full.js"></script>
+<script>
+$.datetimepicker.setLocale('zh');
+$('#datetimepicker8').datetimepicker({
+	format:'Y-m-d',
+	formatDate:'Y-m-d',
+	timepicker:false
+});
+
+$('#datetimepicker9').datetimepicker({
+	format:'Y-m-d H:i:s',
+	formatDate:'Y-m-d H:i:s',
+});
+</script>
+</html>

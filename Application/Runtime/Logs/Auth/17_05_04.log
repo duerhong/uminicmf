@@ -1,0 +1,103 @@
+[ 2017-05-04T01:10:46+08:00 ] ::1 /uminicmf/Auth/Index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000052s ]
+SQL: SHOW COLUMNS FROM `xq_site` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `xq_site` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+NOTIC: [8] Use of undefined constant DEFAULT_THEME - assumed 'DEFAULT_THEME' /var/www/uminicmf/Application/Runtime/Cache/Auth/24cbe003ef7b9f9ee9b144023c746398.php 第 10 行.
+NOTIC: [8] Use of undefined constant DEFAULT_THEME - assumed 'DEFAULT_THEME' /var/www/uminicmf/Application/Runtime/Cache/Auth/24cbe003ef7b9f9ee9b144023c746398.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002204s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002272s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.030115s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.030173s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.011465s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011519s ]
+
+[ 2017-05-04T01:10:57+08:00 ] ::1 /uminicmf/Auth/Index/login_auth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000100s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000138s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `xq_site` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `xq_site` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `xq_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `xq_user` WHERE `username` = 'duerhong' AND `password` = 'e10adc3949ba59abbe56e057f20f883e' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: nickname /var/www/uminicmf/Application/Auth/Controller/IndexController.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `xq_auth_group` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `xq_menu` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `xq_menu` WHERE ( type=0 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `xq_user_log` [ RunTime:0.0009s ]
+SQL: INSERT INTO `xq_user_log` (`user_id`,`table_name`,`model_name`,`action`,`obj_id`,`times`,`ip`) VALUES ('1000000','','','登录成功','0','2017-05-04 01:10:57','0.0.0.0') [ RunTime:0.0002s ]
+
+[ 2017-05-04T09:47:42+08:00 ] ::1 /system/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000654s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001112s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001166s ]
+ERR: SQLSTATE[HY000] [1045] Access denied for user 'debian-sys-maint'@'localhost' (using password: YES)
+
+[ 2017-05-04T09:48:14+08:00 ] ::1 /system/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000607s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001291s ]
+SQL: SHOW COLUMNS FROM `xq_site` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `xq_site` LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-05-04T09:48:36+08:00 ] ::1 /system/Auth/Index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000591s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001323s ]
+SQL: SHOW COLUMNS FROM `xq_site` [ RunTime:0.0033s ]
+SQL: SELECT * FROM `xq_site` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000066s ]
+NOTIC: [8] Use of undefined constant DEFAULT_THEME - assumed 'DEFAULT_THEME' C:\xampp\htdocs\system\Application\Runtime\Cache\Auth\24cbe003ef7b9f9ee9b144023c746398.php 第 10 行.
+NOTIC: [8] Use of undefined constant DEFAULT_THEME - assumed 'DEFAULT_THEME' C:\xampp\htdocs\system\Application\Runtime\Cache\Auth\24cbe003ef7b9f9ee9b144023c746398.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007285s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007348s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000969s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000998s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001028s ]
+
+[ 2017-05-04T09:48:37+08:00 ] ::1 /system/Auth/Index/login_auth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000594s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001247s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001295s ]
+SQL: SHOW COLUMNS FROM `xq_site` [ RunTime:0.0111s ]
+SQL: SELECT * FROM `xq_site` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `xq_user` [ RunTime:0.0197s ]
+SQL: SELECT * FROM `xq_user` WHERE `username` = 'duerhong' AND `password` = 'e10adc3949ba59abbe56e057f20f883e' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: nickname C:\xampp\htdocs\system\Application\Auth\Controller\IndexController.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `xq_auth_group` [ RunTime:0.0231s ]
+SQL: SHOW COLUMNS FROM `xq_menu` [ RunTime:0.0084s ]
+SQL: SELECT * FROM `xq_menu` WHERE ( type=0 )  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `xq_user_log` [ RunTime:0.0077s ]
+SQL: INSERT INTO `xq_user_log` (`user_id`,`table_name`,`model_name`,`action`,`obj_id`,`times`,`ip`) VALUES ('1000000','','','登录成功','0','2017-05-04 09:48:37','0.0.0.0') [ RunTime:0.0008s ]
+

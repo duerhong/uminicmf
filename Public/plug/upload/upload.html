@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset='utf-8'>
+<title>上传文件</title>
+
+</head>
+<body>
+<style>
+body{
+	margin: 0px;
+	padding: 0px;
+}
+	input{
+		margin: 0px;
+		margin-top: 5px;
+		padding: 0px;
+		width: 170px;
+		height: 25px;
+		border: 0px;
+
+	}
+	.submit{
+		padding: 0px;
+		margin: 0px;
+		background: #6f5499;
+		width: 80px;
+		color: #fff;
+	}
+
+</style>
+<form id="upload" class="myform" method='post' action="{:U('Plugs/Upload/upload',array('model'=>$_GET['model'],'field'=>$_GET['field']))}" enctype="multipart/form-data">
+	<input type='file'  name='image'><input type="submit" class="submit" value="上传" >
+</form>
+
+
+</body>
+</html>

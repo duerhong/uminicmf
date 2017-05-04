@@ -1,0 +1,134 @@
+<extend name="Public@Public/base" />
+
+
+<block name="main_content">
+<div class="filter">
+    <div class="row frow">
+      <form action="" method="POST" name="form" class="myforms">
+      {$saerchForm}
+      <div class="col-md-1  col-xs-12 col-sm-1">
+        <input  type="submit" class="btn btn-info btn-sm btn-block" value="条件查询">
+      </div>
+      </form>
+
+    </div>
+</div>
+<form id="form_list" name="form_list" action="" method="post">
+<table class="table  datalist  table-hover">
+  <thead>
+    <tr>
+      <th style="font-size:12px;">
+        <input type="checkbox" class="select_all" name="select_all">
+      </th>
+      <if condition="$list_img_show neq false">
+        <th>图片</th>
+      </if>
+      <foreach name="title_lists" item="row">
+        <th>
+          {$row}
+          <if condition="$_GET['order_by'] neq $key.'|desc' and $_GET['order_by'] neq $key.'|asc'">
+            <a href="{:add_url_parameter('order_by',$key.'|desc')}">
+              <i class="iconfont" title="通过{$row}排序">&#xe63b;</i>
+            </a>
+
+          <elseif condition="$_GET['order_by'] eq $key.'|desc'"/>
+            <a href="{:add_url_parameter('order_by',$key.'|asc')}">
+              <i class="iconfont" title="通过{$row}升序排序">&#xe65c;</i>
+            </a>
+
+
+          <elseif condition="$_GET['order_by'] eq $key.'|asc'"/>
+            <a href="{:add_url_parameter('order_by',$key.'|desc')}">
+              <i class="iconfont" title="已经通过{$row}降序排列">&#xe66e;</i>
+            </a>
+
+          </if>
+
+        </th>
+      </foreach>
+      <th class="tright pad-r21" scope="row">
+
+
+
+          <!-- Split button -->
+          <div class="btn-group">
+            <if condition="$action_add_button neq false">
+            <a type="button" class="btn btn-info btn-sm" href="{:U($action_add_button['node_name'])}">{$action_add_button['title']}+</a>
+            </if>
+            <if condition="$common_action_button neq false">
+            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              更多操作<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <foreach name="common_action_button" item="arow">
+                <if condition="$arow['pre_func'] neq false">
+                <li><a onclick="{$arow['pre_func']}('{:U($arow[\'node_name\'])}');">{$arow['title']}</a></li>
+                <else />
+                <li><a href="{:U($arow['node_name'])}" onclick="comm_url('{:U($arow[\'node_name\'])}');">{$arow['title']}</a></li>
+                </if>
+              </foreach>
+            </ul>
+            </if>
+          </div>
+
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <foreach name="list_data" item="row" key='key'>
+    <tr>
+      <td style="font-size:12px;">
+        <input type="checkbox" name="select_id[]" value="{$row['id']}">
+      </td>
+      <if condition="$list_img_show neq false">
+        <td><img src="{$row[$list_img_show]}" width=42 height=42 style="border:1px solid #ccc;padding:2px;"></td>
+      </if>
+      <foreach name="title_lists" item="row1" key='key1'>
+        <td>
+         {$row[$key1]|get_model_value=$THIS_MODEL['model_name'],$key1}
+        </td>
+      </foreach>
+      <td class="tright" scope="row">
+        <foreach name="action_lists" item="act_row">
+        <a href="{:U($act_row['node_name'],array('id'=>$row['id']))}"  onclick="{$act_row['pre_func']}();" class="abtn">{$act_row['title']}</a>&nbsp;
+        </foreach>
+      </td>
+    </tr>
+    </foreach>
+  </tbody>
+  <thead>
+    <tr>
+      <td style="font-size:12px;">
+      </td>
+      <if condition="$list_img_show neq false">
+        <th>图片</th>
+      </if>
+      <foreach name="title_lists" item="row">
+        <th>
+          {$row}
+        </th>
+      </foreach>
+      <th class="tright pad-r21" scope="row">操作</th>
+    </tr>
+  </thead>
+  </table>
+  </form>
+  <form action="" method="GET">
+  <div class="page">{$page}&nbsp;&nbsp;
+  <span>跳转至&nbsp;<input type="text" name="p" value="{$_GET['p']}"  style="padding:4px 6px;border:1px solid #ccc;border-radius: 4px;width: 50px;">&nbsp;页&nbsp;</span><input type="submit"  class="btn btn-info btn-sm" value="确认">
+  </div>
+  </form>
+
+  <script type="text/javascript">
+  $(".select_all").click(
+    function(){
+      if(this.checked){
+        $("input[name='select_id[]']").each(function(){this.checked=true;});
+      }else{
+        $("input[name='select_id[]']").each(function(){this.checked=false;});
+      }
+    }
+  );
+  </script>
+</block>

@@ -1,0 +1,23 @@
+<form class="form-horizontal" action="/index.php?s={$Think.MODULE_NAME}/{$Think.CONTROLLER_NAME}/{$THIS_MODEL['save']}&model={$_GET['model']}&menu_id={$_GET['menu_id']}" method="POST"> 
+ 
+<div class='fms'>
+  <!-- Nav tabs -->
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    <!-- ===============上====================== -->
+      {$form}
+    <!-- ===============下====================== -->
+    </div>
+  </div>
+
+</div><!--fms-->
+
+  
+  <div class="form-group form_sub">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">提 交</button>
+    </div>
+  </div>
+<!-- 基本配置 -->
+</form>

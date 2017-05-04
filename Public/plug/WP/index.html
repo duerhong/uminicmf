@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>上传图片插件</title>
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+</head>
+<body>
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+    list-style: none;
+}
+.scitem{
+    /*margin-top: 10px;*/
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    top: 10px;
+}
+.sc-head{
+    color: #fff;
+    font-family: "微软雅黑";
+    background: #5a5a5a;
+    overflow: hidden;
+    height: 50px;
+}
+
+.sc-title{
+    cursor: pointer;
+        padding: 8px;
+    font-weight: bold;
+    float: left;
+    background: #00B7EE;
+    border-radius: 4px;
+}
+
+.sc-close{
+     cursor: pointer;
+        padding: 8px;
+    font-weight: bold;
+    float: right;
+    background: #00B7EE;
+    border-radius: 4px;
+}
+
+.scmain{
+    background: #fff;
+    margin: 50px;
+    overflow: hidden;
+    border: 25px #5a5a5a solid;
+    border-top: 13px #5a5a5a solid;
+    border-radius: 10px;
+}
+.btn{
+    cursor: pointer;
+    padding: 8px;
+    font-weight: bold;
+    background: #00B7EE;
+    border-radius: 4px;
+    color: #fff; 
+    text-align: center;
+}
+#fmid{
+    width: 100%;
+}
+
+#imglist{
+    overflow: hidden;
+}
+
+#imglist li{
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    float: left;
+    line-height: 120px;
+    margin-right: 5px;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+#imglist li img{
+    vertical-align: middle;
+    max-height: 120px;
+    max-width: 120px;
+}
+
+#imglist li p{
+    line-height: 28px;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.imgdel{
+    font-size: 11px;
+    display: none;
+    position: absolute;
+    line-height: 22px;
+    margin-top: -120px;
+    padding: 0px 8px 0px 8px;
+    background: #00B7EE;
+    color: #fff;
+    margin-left: 80px;
+    border-radius: 2px;
+}
+
+#imglist li:hover #imglist li.imgdel{
+    display: block;
+
+}
+
+
+</style>
+
+<div class="main btn">
+<a id="sc">点击上传图片</a>
+</div>
+
+<div class="piclist">
+    <input type="hidden"  name="imgid" id="imgid" value="">
+    <hr />
+    <ul id="imglist"></ul>
+</div>
+
+<div class="scitem">
+    <div class="scmain">
+    <div class="sc-head">
+        <div class="sc-title">完成上传</div>
+        <div class="sc-close">关闭X</div>
+    </div>
+    <div class="sc-body">
+        <iframe frameborder="no" width=100% height=500 name="photoUploadDialog" id="photoUploadDialog" src="/Public/plug/WP/examples/image-upload/"></iframe>
+    </div>
+    </div>
+</div>
+
+<script>
+$("#sc").click(function(){
+  $(".scitem").show();
+  document.getElementById('photoUploadDialog').contentWindow.location.reload(true);
+});
+
+
+$(".sc-close").click(function(){
+  $(".scitem").hide();
+  document.getElementById('photoUploadDialog').contentWindow.location.reload(true);
+});
+
+$(".sc-title").click(function(){
+  $(".scitem").hide();
+  document.getElementById('photoUploadDialog').contentWindow.location.reload(true);
+});
+
+function iFrameHeight() {   
+    var ifm= document.getElementById("photoUploadDialog");   
+    var subWeb = document.frames ? document.frames["photoUploadDialog"].document : ifm.contentDocument;   
+    if(ifm != null && subWeb != null) {
+       ifm.height = subWeb.body.scrollHeight;
+       ifm.width = subWeb.body.scrollWidth;
+    }   
+}  
+</script>
+
+</body>
+</html>

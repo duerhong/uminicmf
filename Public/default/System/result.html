@@ -1,0 +1,43 @@
+<extend name="Public@Public/base" />
+
+<block name="main_content">
+
+<form class="form-horizontal" action="" id="form_{$THIS_MODEL['model_name']}" method="POST">
+<div class='fms'>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <?php $myi=0; ?>
+    <foreach name="field_group_list" item="row">
+      <li role="presentation" <if condition="$myi eq 0"> class="active"</if>><a href="#tab_{$row['id']}" aria-controls="tab_{$row['id']}" role="tab" data-toggle="tab">{$row['title']}</a></li><?php $myi++; ?>
+    </foreach>
+
+  </ul>
+
+
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- ===============上====================== -->
+        {$form}
+    <!-- ===============下====================== -->
+  </div>
+
+</div><!--fms-->
+
+
+  <div class="form-group form_sub">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" name="submit" value="提 交" class="btn btn-default">
+    </div>
+  </div>
+<!-- 基本配置 -->
+</form>
+
+<!-- 这里构建js -->
+{$form_validate}
+
+
+
+
+
+</block>

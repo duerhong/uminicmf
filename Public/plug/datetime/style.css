@@ -1,0 +1,51 @@
+.dropdown-menu{
+	background: #fff;
+	position: absolute;
+	display: none;
+	/*width: 300px;*/
+	border: 2px solid #dedede;
+}
+.datetimepicker{
+	font-family: -webkit-pictograph;
+	margin-top: 5px;
+}
+    
+.datetimepicker td, .datetimepicker th {
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: none;
+}
+
+
+.switch{
+	height: 32px;
+}
+
+.icon-arrow-right:after{
+	content: ">";
+}
+
+.icon-arrow-left:after{
+	content: "<";
+}
+
+.hour{
+	border:1px solid #dedede;
+}
+.minute{
+	border:1px solid #dedede;
+}
+
+.auth-head{
+	font-weight: bold;
+	background: #93D6EF;
+}
+
+.fun-menu-head{
+
+	background: #EBDEF0;
+}

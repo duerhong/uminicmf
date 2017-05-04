@@ -1,0 +1,454 @@
+.tleft{
+	text-align: left;
+}
+.tright{
+	text-align: right;
+}
+
+.tcenter{
+	text-align: center;
+}
+
+.uc_main{
+	margin:0px 3px;
+	font-size: 13px;
+}
+
+.orders_body{
+	/*margin:30px;*/
+}
+
+.order_head{
+	height: 45px;
+	line-height: 45px;
+	font-size: 15px;
+	margin-left: 15px;
+}
+
+.order_toods{
+	height: 35px;
+	line-height: 35px;
+	/*background: #f1f1f1;*/
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	overflow: hidden;
+	padding-left: 15px;
+}
+.ot_item{
+	margin-right: 30px;
+	overflow: hidden;
+}
+
+.otleft{
+	float: left;
+}
+
+.orright{
+	float: right;
+	padding-right: 15px;
+}
+
+.iorinput{
+	padding: 3px;
+	border:1px solid #e45050;
+	border-radius: 2px;
+}
+
+.iorsub{
+	padding:3px;
+	border:1px solid #e45050;
+	background: #e45050;
+	color: #fff;
+	border-radius: 1px;
+	font-size: 12px;
+	border-radius: 2px;
+}
+
+.ol_title{
+	margin-top: 10px;
+	background: #f1f1f1;
+	padding-left: 15px;
+	line-height: 35px;
+	height: 35px;
+	overflow:hidden;
+	color: #000;
+	border-bottom: 1px solid #d8d8d8;
+	border-top: 1px solid #d8d8d8;
+	margin-bottom: 10px;
+}
+
+.ol_item{
+
+	float: left;
+}
+.ol_50{
+	width: 50%;
+}
+
+.ol_10{
+	width: 10%;
+}
+
+.ol_5{
+	width: 5%;
+}
+.ol_30{
+	width: 30%;
+}
+
+.ol_15{
+	width: 15%;
+}
+
+.ol_25{
+	width: 25%;
+}
+
+
+.ol_60{
+	width: 60%;
+}
+
+.ol_20{
+	width: 20%;
+}
+
+.ol_tab{
+    margin-top: 2px;
+    border-collapse: collapse;
+    border: 1px solid #d8d8d8;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.olinfo{
+	    margin-top: 15px;
+    line-height: 28px;
+}
+
+.olinfo a{
+	color: #666;
+}
+
+.ol_tab tr th{
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border: 1px solid #d8d8d8;
+	font-weight: normal;
+	background: #f1f1f1;
+	text-align: left;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.ol_tab tr td{
+	vertical-align: top;
+	border: 1px solid #d8d8d8;
+}
+
+
+.ol_tab tr .nbder{
+	border: 0px;
+}
+
+.ol_lists{
+	overflow: hidden;
+}
+
+.ol_lists ul{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: -1px;
+	padding: 0px;
+}
+
+.ol_lists ul li{
+	overflow: hidden;
+	float: left;
+}
+
+.olimg{
+	padding: 1px;
+	border:1px solid #ccc;
+}
+.olimgshow{
+	text-align: center;
+	height: 90px;
+	line-height: 90px;
+}
+
+.olimgshow .olimg{
+	border-radius: 4px;
+	vertical-align: middle;
+	width: 65px;
+	height: 65px;
+}
+
+.ol_otinfo{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.ol_otinfo{
+	line-height: 28px;
+}
+
+.ol_otinfo span{
+	color: #ff0000;
+}
+
+.order_time{
+	color: #888;
+	margin-right: 10px;
+}
+.order_num{
+	margin-right: 20px;
+}
+
+/*===================订单详情页面=========================*/
+
+.uc_row{
+	color: #888;
+	margin-top: 10px;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	overflow: hidden;
+	/*background-color: #f9f9f9;*/
+
+}
+
+.uc_row .order_num{
+	font-size: 15px;
+	font-weight: bold;
+	float: left;
+}
+.uc_row .order_status{
+	float: left;
+	margin-left: 30px;
+	font-weight: 14px;
+	color: #71b247;
+}
+
+
+.uc_row .order_time{
+	float: right;
+}
+
+.uc_tab{
+	font-size: 14px;
+}
+
+.uc_tab tr td{
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+.urc_tab{
+	margin-top: 10px;
+	font-size: 14px;
+	width: 100%;
+}
+
+.urc_tab p{
+	padding:0px;
+	margin: 0px;
+}
+
+.urc_tab a{
+	color: #666;
+}
+
+.refund_a a{
+	color: #ff0000;
+}
+
+.o-input{
+	width: 222px;
+}
+
+.order_row{
+	background-color: #f1f1f1;
+	padding: 20px 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.orders_total{
+	width: 250px;
+    float: right;
+    color: #f40;
+}
+    
+
+
+
+.urc_tab tr th{
+	height: 35px;
+	line-height: 35px;
+	background: #f3f3f3;
+	font-weight: normal;
+	border-top: 1px solid #e9e9e9;
+	border-bottom: 1px solid #e9e9e9;
+}
+
+.urc_tab tr td{
+	height: 25px;
+	line-height: 25px;
+	border-bottom: 1px dotted #ddd;
+	height: 81px;	
+}
+
+.urc_tab tr td img{
+	vertical-align: middle;
+	border:1px solid  #ccc;
+	padding: 3px;
+}
+
+.ucp{
+	color: #333;
+	text-align: right;
+}
+.ucp span{
+	font-weight: bold;
+	color: #f40;
+	font-size: 15px;
+	font-style: italic;
+}
+.select_kd{
+	line-height: 30px;
+	overflow: hidden;
+}
+
+.select_kd label{
+	display: block;
+	float: left;
+	margin-right: 5px;
+	color: #888;
+}
+
+.select_kd select{
+	display: block;
+	float: left;
+}
+
+.select_kd input{
+	display: block;
+	float: left;
+}
+
+.left30 {
+	margin-right: 30px
+}
+
+.select_kd label input{
+	margin-top: 8px;
+}
+
+.ot_message{
+	position: relative;
+	width: 400px;
+	margin: 110px auto 170px;
+	height: 236px;
+	overflow: hidden;
+}
+
+.e-cont{
+
+    text-align: center;
+}
+
+.e-cont h5{
+	font-family: "Microsoft YaHei";
+    color: #666;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.e-cont p{
+	margin: 30px;
+}
+
+.ucr_head .ucr_title{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.ucr_head{
+	padding: 6px;
+	border-bottom: 1px solid #ccc;
+}
+
+.ucr_row{
+	overflow: hidden;
+	background-color: #f1f1f1;
+	margin: 10px 0px;
+	padding: 15px;
+}
+
+.urt{
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+.ucr_row table{
+	width: 100%;
+	font-size: 13px;
+}
+
+.ucr_row table tr td{
+	padding: 8px 0px;
+
+}
+
+
+.utolls{
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.urc_wr{
+	color: #ff0000;
+}
+
+.comm{
+	margin-bottom: 30px;
+}
+
+.comm_item{
+	margin-top: 10px;
+	overflow: hidden;
+	padding: 20px;
+	background: #f1f1f1;
+}
+.comm_item .comm_tools{
+	font-style: italic;
+	color: #888;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.comm_item .comm_tools span{
+	margin-right: 30px;
+}
+
+.cmmpage{
+	margin-top: 10px;
+}
+
+.comm_img{
+	width: 130px;
+	height: 130px;
+	float:left;
+}
+
+.comm_img img{
+	border:1px solid #ccc;
+	box-shadow: 2px 2px 3px  #ccc;
+	margin-bottom: 3px;
+}
+
+.comm_con{
+	margin-top: 15px;
+	line-height: 26px;
+}

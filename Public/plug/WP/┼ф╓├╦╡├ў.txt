@@ -1,0 +1,4 @@
+1.保存路径配置
+/server/fileUpload.php  大约60行附近
+$targetDir = 'upload_tmp';
+$uploadDir = 'upload';

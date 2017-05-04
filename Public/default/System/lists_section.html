@@ -1,0 +1,90 @@
+<extend name="Public@Public/base" />
+
+
+<block name="main_content">
+<div class="filter">
+
+   <!--  <div class="row frow">
+      <form action="" method="POST" name="form" class="myforms">
+      {$saerchForm}
+      <div class="col-md-1  col-xs-12 col-sm-1">
+        <input  type="submit" name="submit" class="btn btn-info btn-sm btn-block" value="条件查询">
+      </div>
+      </form>
+
+    </div> -->
+
+
+
+
+
+</div>
+<table class="table  datalist  table-hover">
+  <thead>
+    <tr>
+      <if condition="$list_img_show neq false">
+        <th>图片</th>
+      </if>
+      <foreach name="title_lists" item="row">
+        <th>
+          {$row}
+        </th>
+      </foreach>
+      <th class="tright pad-r21" scope="row">
+
+
+
+          <!-- Split button -->
+          <div class="btn-group">
+            <if condition="$action_btn_add neq false">
+            <a type="button" class="btn btn-info btn-sm" href="{:U($action_btn_add['node_name'],array('sec_id'=>$_GET['id']))}">{$action_btn_add['title']}+</a>
+            </if>
+            <if condition="$action_btn_common neq false">
+            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              更多操作<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <foreach name="action_btn_common" item="arow">
+                <li><a href="{:U($arow['node_name'],array('sec_id'=>$_GET['id']))}">{$arow['title']}</a></li>
+              </foreach>
+            </ul>
+            </if>
+          </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <foreach name="list_data" item="row" key='key'>
+    <tr>
+      <if condition="$list_img_show neq false">
+        <th><img src="{$row[$list_img_show]}" width=42 height=42 style="border:1px solid #ccc;padding:2px;"></th>
+      </if>
+      <foreach name="title_lists" item="row1" key='key1'>
+        <td>
+         {$row[$key1]|get_model_value=$THIS_MODEL['model_name'],$key1}
+        </td>
+      </foreach>
+      <td class="tright" scope="row">
+        <foreach name="action_btn_select" item="act_row">
+        <a href="{:U($act_row['node_name'],array('id'=>$row['id'],'sec_id'=>$_GET['id']))}"  onclick="{$act_row['pre_func']}();" class="abtn"><i class="iconfont"></i>{$act_row['title']}</a>&nbsp;
+        </foreach>
+      </td>
+    </tr>
+    </foreach>
+  </tbody>
+  <thead>
+    <tr>
+      <if condition="$list_img_show neq false">
+        <th>图片</th>
+      </if>
+      <foreach name="title_lists" item="row">
+        <th>
+          {$row}
+        </th>
+      </foreach>
+      <th class="tright pad-r21" scope="row">操作</th>
+    </tr>
+  </thead>
+  </table>
+  <div class="page">{$page}</div>
+</block>

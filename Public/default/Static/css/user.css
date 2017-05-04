@@ -1,0 +1,89 @@
+.inuser{
+	border: 1px solid #ccc;
+	font-size: 13px;
+	overflow: hidden;
+	padding: 30px;
+	background-color: #f1f1f1;
+	margin: 10px 0px;
+}
+
+.inuser table{
+	font-size: 13px;
+
+}
+
+.inuser table tr td{
+	padding: 4px;
+}
+
+
+
+.inuser .user_img{
+	float: left;
+	width: 120px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.inuser .user_img p{
+	margin-top: 12px;
+}
+
+.inuser .user_img p a{
+	cursor: pointer;
+}
+
+
+.inuser .user_img img{
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+
+.inuser .user_info{
+	float: left;
+}
+
+.clear{
+	clear: both;
+}
+
+.userimg{
+	padding: 10px;
+	border: 1px solid #ccc;
+	width: 400px;
+	display: none;
+	margin-bottom: 20px;
+}
+
+.user_tools{
+	margin-top: 10px;
+}
+
+.user_info table a{
+	cursor: pointer;
+}
+
+.get_yzm{
+	padding: 10px;
+	border: 1px solid #ccc;
+	width: 400px;
+	display: none;
+	margin-bottom: 20px;
+}
+
+.update_pass{
+	margin: 15px;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+}
+
+.form-group{
+	margin-bottom: 15px;
+}
+
+.hid{
+	display: none;
+}

@@ -1,0 +1,152 @@
+.row{
+	margin-right: 0px;
+}
+
+.breadcrumb{
+	border-radius: 0px;
+	border: 1px solid #E2DFDF;
+	box-shadow: 0px 1px 5px #E2DFDF;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	margin-right: 5px;
+	border-radius: 2px;
+}
+
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 5px;
+    padding-right: 0px;
+    overflow: hidden;
+}
+
+.panel-group .panel{
+	margin-bottom: 2px;
+}
+
+.navbar{
+	margin-bottom: 4px;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0px 1px 5px #ddd;
+}
+
+.panel-title{
+	overflow: hidden;
+	font-size: 14px;
+}
+
+.panel-title a{
+	/*display: block;*/
+}
+
+/*自定义进度条*/
+.mypro{
+	border: 1px solid #5CB85C;
+	background-color: #F7DCD9;
+}
+
+.form-control{
+	letter-spacing:1px
+}
+
+.my-alert{
+	margin-left: 15px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+.table>thead>tr>th{
+	border-bottom: 0px solid #ddd;
+	box-shadow: 2px 2px 2px #f1f1f1;
+}
+
+.table>thead{
+	background: #f1f1f1;
+}
+
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+
+
+.tree_list>thead>tr>th,.tree_list>tbody>tr>td{
+    padding: 12px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+
+.tree_list .abtn{
+	padding: 6px;
+	border:1px solid #ddd;
+	border-radius: 4px;
+	background: #f1f1f1;
+}
+
+
+/*===========================================================媒体查询===================================================*/
+/*小屏幕 手机*/
+@media only screen and (min-width: 768px){
+	.sleft{
+		margin-bottom: 5px;
+		border: 0px solid #fff;
+		margin-bottom: 10px;
+
+	}
+
+	.main_body{
+		padding-bottom: 10px;
+
+	}
+	/*.table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+		vertical-align: middle;
+		text-align: center;
+	}*/
+
+	
+
+
+}
+
+/*中等屏幕 平板机*/
+@media only screen and (min-width: 992px){
+	.top50{
+		margin-top: 50px;
+	}
+	.sleft{
+		height: 90%;
+		border: 1px solid #C5B2B2;
+		background: url(../images/bg.png); 
+		border: 0px solid #fff;
+		margin-bottom: 10px;
+		position: fixed;
+	}
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media only screen and (min-width: 1200px){
+	.sleft{
+		/*height: 90%;*/
+		background: url(../images/bg.png); 
+		border: 1px solid #ddd;
+		border: 1px solid #C5B2B2;
+		position: fixed;
+		width: 16.6666%;
+
+		-webkit-box-shadow: 1px 1px 5px #C5B2B2;  
+		-moz-box-shadow: 1px 1px 5px #C5B2B2;  
+		box-shadow: 1px 1px 5px #C5B2B2;  
+
+	}
+	.main{
+		/*height: 90%;
+		overflow-y:scroll; */
+	}
+
+
+}

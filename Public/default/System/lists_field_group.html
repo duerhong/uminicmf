@@ -1,0 +1,100 @@
+<extend name="Public@Public/base" />
+<block name="css">
+  <link href="__ROOT__/Public/{:C(DEFAULT_THEME)}/Static/css/process.css" rel="stylesheet" type="text/css" media="screen">
+</block>
+
+<block name="main_content">
+
+
+<div class="main_head">
+  <div class="project_title">[ {$thisNode['title']} ]</div>
+  <div class="project_tools">
+    <if condition="$fields_group_add_btn">
+      <a class="btn btn-primary btn-sm" href="{:U($fields_group_add_btn['node_name'],array('model_id'=>$_GET['id']))}"  data-toggle="modal" data-target="#add_field_group">{$fields_group_add_btn['title']}
+      </a>
+    </if>
+  </div>
+</div>
+
+
+
+<table class="table  datalist table-hover">
+  <thead>
+    <tr>
+        <th>
+          名称
+        </th>
+        <th>
+          操作
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <foreach name="field_group_list" item="row" key='key'>
+      <tr>
+        <td>
+         {$row['title']}
+        </td>
+        <td>
+          <if condition="$fields_group_update_btn neq false">
+            <a href="index.php?s={:U($fields_group_update_btn['node_name'],array('id'=>$row['id'],'field_group_id'=>$_GET['id']))}" data-toggle="modal" data-target="#update_field_group">修改</a>
+          </if>
+          <if condition="$fields_group_delete_btn neq false">
+            <a href="{:U($fields_group_delete_btn['node_name'],array('id'=>$row['id'],'field_group_id'=>$_GET['id']))}">删除</a>
+          </if>
+        </td>
+      </tr>
+    </foreach> 
+  </tbody>
+  </table>
+
+
+
+
+
+
+
+<!-- =======================================================================================模态框==================================================================================================================================== -->
+<!-- 增加审批管理员 -->
+
+
+
+<div class="modal fade bs-example-modal-lg" id="add_field_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">增加字段分组</h4>
+      </div>
+      <div class="modal-body">
+        没有增加【增加字段分组】模块
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" id="update_field_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">增加字段分组</h4>
+      </div>
+      <div class="modal-body">
+        没有增加【增加字段分组】模块
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</block>

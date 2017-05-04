@@ -1,0 +1,159 @@
+ul{
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+
+.bill-lists ul{
+	overflow: hidden;
+}
+
+.bill-lists ul li{
+	padding: 10px;
+
+	margin:10px 0px;
+	background-color: #f1f1f1;
+	overflow: hidden;
+}
+
+.bill-lists ul li .bbase{
+	font-size:15px;
+	margin: 8px 0px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 8px;
+	overflow: hidden;
+}
+
+.bill-lists ul li .bbase span{
+	margin-right: 50px;
+}
+
+.bill-lists ul li .bbase .btos{
+	float: right;
+}
+
+.bill-lists ul li .bbase .btos a{
+	margin-right: 5px;
+}
+
+
+.bill-lists ul li .binfo{
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.bill-lists ul li .binfo i{
+	color: #333;
+}
+
+.bill-lists ul li .binfo span{
+	margin-right: 30px;
+	color: #888;
+}
+
+
+.bill-result{
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.bill-result .br-item{
+	overflow: hidden;
+	background-color: #f1f1f1;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+
+
+.bill-result .mytb{
+	font-size: 12px;
+	line-height: 28px;
+}
+
+
+.bill-result .mytb .ttitle{
+	padding-right:15px;
+	text-align: right;
+	font-weight: bold;
+}
+.bill-result .mytb .ttinfo{
+	color: #888;
+	padding-right: 40px;
+}
+
+.br-head{
+	color: #999;
+	overflow: hidden;
+	font-size: 15px;
+	line-height: 30px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 15px;
+}
+
+.musia span{
+	color: #000;
+	font-size: 14px;
+	/*font-style: italic;*/
+	font-weight: bold;
+}
+
+.alert{
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+.citem{
+	padding-top: 15px;
+	margin-top: 15px;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+.citem .ctitle{
+	overflow: hidden;
+	height: 33px;
+	font-size: 18px;
+	border-bottom: 2px solid #ccc;
+}
+
+.citem .cinfo{
+	margin-top: 20px;
+}
+
+
+.mmms{
+	margin-top: 30px;
+}
+
+.mmms p{
+	line-height: 13px;
+	font-size: 18px;
+	margin-bottom: 25px;
+}
+
+.mms0{
+	height: 13px;
+	width: 13px;
+	display: inline-block;
+}
+.mms1{
+	background-color: #4d5360;
+}
+
+.mms2{
+	background-color: #f7464a;
+	
+}
+
+.mms3{
+	background-color: #46bfbd;
+}
+.mms4{
+	background-color: #ffc870;
+}
+
+.mms5{
+	background-color: #4efdd2;
+}
+
+

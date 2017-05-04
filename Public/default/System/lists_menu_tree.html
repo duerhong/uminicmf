@@ -1,0 +1,129 @@
+<extend name="Public@Public/base" />
+<block name="main_content">
+  <!-- 列表分组 -->
+	<table class="table table-bordered datalist table-hover">
+      <thead>
+        <tr>
+			<th>
+				菜单名称
+			</th>
+
+			<th>
+				节点
+			</th>
+
+			<th width=250>
+				<if condition="$action_add neq false">
+		        <a href="{:U($action_add['node_name'],array('act_type'=>1))}" class="btn btn-primary btn-xs">
+		          <!-- {$action_add['title']} -->
+		          增加顶级菜单
+		        </a>
+		    </if>
+			</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<foreach name="nav_menu" item="row" key='key'>
+	        <tr style="background:#d9edf7">
+				<td>
+					<span class="d-toggle" data="toggle_{$row['id']}">
+					 	{$row['title']}&nbsp;&nbsp;[展开/隐藏]
+					 </span>
+				</td>
+
+				<td>
+				 	{$row['node_name']}
+				</td>
+
+				<td>
+					<volist name="action_lists" id="act_row">
+			        <a href="{:U($act_row['node_name'],array('act_type'=>1,'id'=>$row['id']))}"  onclick="{$act_row['pre_func']}();">{$act_row['title']}</a>&nbsp;
+			        </volist>
+			        <a href="{:U($action_add['node_name'],array('act_type'=>2,'id'=>$row['id']))}" class="btn btn-info btn-xs mybtn">
+		          增加侧栏一级菜单
+		        	</a>
+				</td>
+	        </tr>
+	        <?php $controller_menu=get_node_auth(array('pid='.$row['id']));?>
+	        <if condition="$controller_menu neq 0">
+	        	<foreach name="controller_menu" item="row1" key='key1'>
+	        		<tr class="toggle_{$row['id']} to_hide">
+						<td>
+						 	<span style="font-family: fantasy;">├─&nbsp;</span>{$row1['title']}
+						</td>
+						<td>
+						 	{$row1['node_name']}
+						</td>
+						<td>
+							<volist name="action_lists" id="act_row">
+					        <a href="{:U($act_row['node_name'],array('act_type'=>2,'id'=>$row1['id']))}"  onclick="{$act_row['pre_func']}();">{$act_row['title']}</a>&nbsp;
+					        </volist>
+					        <a href="{:U($action_add['node_name'],array('act_type'=>3,'id'=>$row1['id']))}" class="btn btn-info btn-xs mybtn">
+		          增加侧栏二级菜单
+		        	</a>
+						</td>
+			        </tr>
+
+			        <?php $sec_menu=get_node_auth(array('pid='.$row1['id']));?>
+			        <if condition="$sec_menu neq 0">
+			        	<foreach name="sec_menu" item="row2" key='key2'>
+			        		<tr class="toggle_{$row['id']} to_hide">
+								<td>
+								 	<span style="font-family: fantasy;">│-----├─&nbsp;</span>{$row2['title']}
+								</td>
+
+								<td>
+								 	{$row2['node_name']}
+								</td>
+
+
+								<td>
+									<volist name="action_lists" id="act_row">
+							        <a href="{:U($act_row['node_name'],array('act_type'=>3,'id'=>$row2['id']))}"  onclick="{$act_row['pre_func']}();">{$act_row['title']}</a>&nbsp;
+							        </volist>
+							        <a href="{:U($action_add['node_name'],array('act_type'=>4,'id'=>$row2['id']))}" class="btn btn-success btn-xs mybtn">
+		         				 	增加操作
+		        					</a>
+								</td>
+					        </tr>
+					        <?php $action_menu=get_node_auth(array('pid='.$row2['id']));?>
+					        <if condition="$action_menu neq 0">
+					        	<volist name="action_menu" id="row3" key='key3'>
+					        		<tr class="toggle_{$row['id']} to_hide">
+										<td style="color:#ABABAB">
+										 	<span style="font-family: fantasy;">│-----│-----├─&nbsp;</span>{$row3['title']}
+										</td>
+										<td>
+										 	{$row3['node_name']}
+										</td>
+										<td>
+											<volist name="action_lists" id="act_row">
+									        <a href="{:U($act_row['node_name'],array('act_type'=>4,'id'=>$row3['id']))}"   onclick="{$act_row['pre_func']}();">{$act_row['title']}</a>&nbsp;
+									        </volist>
+										</td>
+							        </tr>
+							    </volist>
+							</if>
+			        	</foreach>
+			        </if>
+
+	        	</foreach>
+	        </if>
+	        
+
+    	</foreach>
+
+        
+      </tbody>
+
+      <thead>
+        <tr>
+            <th>名称</th>
+            <th>节点</th>
+            <th>操作</th>
+        </tr>
+      </thead>
+
+    </table>
+
+</block>

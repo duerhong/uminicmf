@@ -1,0 +1,32 @@
+<extend name="Public@Public/base" />
+
+
+<block name="main_content">
+<table class="table table-bordered datalist table-hover tree_list">
+  <thead>
+    <tr>
+      <foreach name="title_lists" item="row">
+        <th>
+          {$row}
+        </th>
+      </foreach>
+      <th>
+        操作
+        <if condition="$action_add_button neq false">
+        <a href="/index.php?s={$action_add_button['node_name']}" class="btn btn-primary btn-xs"><i class="iconfont">{$action_add_button['img']|htmlspecialchars_decode}</i> 
+          {$action_add_button['title']}
+        </a>
+        </if>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $tree_list=menu_tree($list_data,$pk="id",$pid="parent_id",$child="_child",$root=0);
+    set_tree_lev($tree_list,true);
+    set_tree($tree_list,$title_lists,$action_lists,$THIS_MODEL['model_name'])
+    ?>
+    </foreach> 
+  </tbody>
+  </table>
+</block>

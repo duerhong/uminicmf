@@ -1,0 +1,102 @@
+<extend name="Public@Public/base" />
+<block name="main_content">
+  <!-- 列表分组 -->
+	<table class="table table-bordered datalist table-hover">
+      <thead>
+        <tr>
+			<th>
+				地区名称
+			</th>
+
+			<th>
+				地区类型
+			</th>
+
+			<th width=250>
+				<!-- <if condition="$action_add neq false">
+		        <a href="/index.php?s={$Think.MODULE_NAME}/{$Think.CONTROLLER_NAME}/{$action_add['node_name']}&model={$_GET['model']}&menu_id={$_GET['menu_id']}&act_id={$action_add['id']}" class="btn btn-primary btn-xs">
+		          {$action_add['title']}
+		        </a>
+		        </if> -->
+			</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<foreach name="nav_menu" item="row" key='key'>
+	        <tr style="background:#d9edf7">
+				<td>
+				 	{$row['province']}
+				</td>
+
+				<td>
+				 	{$row['code']}
+				</td>
+
+				<td>
+					<!-- <volist name="action_lists" id="act_row">
+			        <a href="/index.php?s={$Think.MODULE_NAME}/{$Think.CONTROLLER_NAME}/{$act_row['node_name']}&model={$_GET['model']}&menu_id={$_GET['menu_id']}&act_id={$act_row['id']}&id={$row['id']}">{$act_row['title']}</a>&nbsp;
+			        </volist> -->
+				</td>
+	        </tr>
+	        <?php $controller_menu=get_region_node(array('pid='.$row['id']));?>
+	        <if condition="$controller_menu neq 0">
+	        	<foreach name="controller_menu" item="row1" key='key1'>
+	        		<tr>
+						<td>
+						 	<span style="font-family: fantasy;">├─&nbsp;</span>{$row1['city']}
+						</td>
+						<td>
+						 	{$row1['code']}
+						</td>
+						<td>
+							<!-- <volist name="action_lists" id="act_row">
+					        <a href="/index.php?s={$Think.MODULE_NAME}/{$Think.CONTROLLER_NAME}/{$act_row['node_name']}&model={$_GET['model']}&menu_id={$_GET['menu_id']}&act_id={$act_row['id']}&id={$row1['id']}">{$act_row['title']}</a>&nbsp;
+					        </volist> -->
+						</td>
+			        </tr>
+
+			        <?php $sec_menu=get_region_node(array('pid='.$row1['id']));?>
+			        <if condition="$sec_menu neq 0">
+			        	<foreach name="sec_menu" item="row2" key='key2'>
+			        		<tr>
+								<td>
+								 	<span style="font-family: fantasy;">│-----├─&nbsp;</span>{$row2['district']}
+								</td>
+
+								<td>
+								 	{$row2['code']}
+								</td>
+
+
+								<td>
+									<!-- <volist name="action_lists" id="act_row">
+							        <a href="/index.php?s={$Think.MODULE_NAME}/{$Think.CONTROLLER_NAME}/{$act_row['node_name']}&model={$_GET['model']}&menu_id={$_GET['menu_id']}&act_id={$act_row['id']}&id={$row2['id']}">{$act_row['title']}</a>&nbsp;
+							        </volist> -->
+								</td>
+					        </tr>
+					        
+			        	</foreach>
+			        </if>
+
+	        	</foreach>
+	        </if>
+	        
+
+    	</foreach>
+
+        
+      </tbody>
+
+      <thead>
+        <tr>
+            <th>地区行政</th>
+            <th>类型</th>
+            <th>操作</th>
+
+        </tr>
+      </thead>
+
+    </table>
+
+<!-- 分页 -->
+</block>

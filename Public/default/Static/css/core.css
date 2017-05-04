@@ -1,0 +1,66 @@
+.de_head{
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  margin-top: 15px;
+  overflow: hidden;
+  height: 35px;
+  line-height: 35px;
+}
+
+.de_title{
+  float: left;
+  font-size: 16px;
+}
+
+.de_tools{
+  float: right;
+  margin-right: 12px;
+  font-size: 15px;
+  font-weight: normal;
+}
+.de_body{
+  margin: 30px;
+}
+
+.section_body{
+  margin: 15px 10px;
+}
+
+.mag30{
+  margin: 15px 0px;
+}
+
+.mypal{
+  margin: 10px;
+}
+
+
+.secboder{
+  border:1px solid #ccc;
+  border-radius: 4px;
+  padding: 50px;
+}
+
+.dev-item{
+  line-height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 15px 0px;
+  padding: 15px;
+  background: #f1f1f1;
+}
+
+.mytable tr td{
+  padding: 6px;
+
+}
+
+.dev-title{
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
